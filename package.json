@@ -1,0 +1,22 @@
+{
+  "name": "raureif-browserify",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "raureif build",
+    "start": "raureif serve",
+    "test": "raureif test --ci",
+    "prepublish": "npm run build",
+    "prebuild": "npm run test"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist/*",
+    "!dist/node",
+    "!dist/polyfill.js"
+  ],
+  "devDependencies": {
+    "raureif": "^2.0.2",
+    "yarn": "^1.2.1"
+  },
+  "license": "MIT"
+}
