@@ -9,14 +9,27 @@
     "prebuild": "npm run test"
   },
   "main": "dist/index.js",
+  "keywords": [
+    "raureif-addon"
+  ],
   "files": [
     "dist/*",
     "!dist/node",
     "!dist/polyfill.js"
   ],
+  "peerDependencies": {
+    "raureif": ">= 2.0.7"
+  },
   "devDependencies": {
     "raureif": "^2.0.2",
     "yarn": "^1.2.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "broccoli-funnel": "^2.0.1",
+    "broccoli-merge-trees": "^2.0.0",
+    "broccoli-watchify": "^1.0.1",
+    "glob": "^7.1.2",
+    "uppercamelcase": "^3.0.0"
+  }
 }
