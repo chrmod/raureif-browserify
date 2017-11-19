@@ -41,7 +41,7 @@ export default {
 
     const testFiles = glob
       .sync(`${basePath}/tests/browser/**/*-test.js`)
-      .map(filePath => `.${filePath.slice(basePath.length + 6)}`);
+      .map(filePath => `.${filePath.slice(basePath.length)}`);
 
     outputTrees.push(
       watchify(
@@ -50,18 +50,13 @@ export default {
           basePath,
           entries: testFiles,
           packageName,
-          outputFile: 'tests.browser.js',
+          outputFile: 'tests/browser/index.browser.js',
         }),
       ),
     );
 
-    return new MergeTrees(
-      outputTrees.map(
-        t =>
-          new Funnel(t, {
-            include: ['**/*.browser.js'],
-          }),
-      ),
-    );
+    return new Funnel(new MergeTrees(outputTrees), {
+      include: ['**/*.browser.js'],
+    });
   },
 };
